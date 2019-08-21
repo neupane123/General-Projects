@@ -84,6 +84,12 @@
           </a>
         </li>
 
+        <li class="<?php echo (isset($title) && $title=='Authorization') ? 'active ' : ' ';?> treeview">
+          <a href="<?php echo base_url();?>post-add.php">
+            <i class="fa fa-dashboard"></i> <span>Authorization</span>
+          </a>
+        </li>
+
         <li class="<?php echo (isset($title) && $title=='Category') ? 'active ' : ' ';?> treeview">
           <a href="<?php echo base_url();?>category-add.php">
             <i class="fa fa-dashboard"></i> <span>Category</span>

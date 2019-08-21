@@ -61,6 +61,7 @@
                               setcookie('username',$user_info['username'],strtotime('+1 days'));
                           }
                           $_SESSION['username'] = $user_info['username'];
+                          $_SESSION['role']= $user_info['role'];
                           $_SESSION['name'] = $user_info['name'];
                           header("location:dashboard.php");
                       }else{

@@ -1,6 +1,11 @@
 <?php
 		$title = "Category";
 		require_once "header.php";
+		require_once "authorization.php"; //role based authorization
+		
+		$roles = explode(',',$_SESSION['role']);
+
+		authorize('add_category',$roles);
 		$validation = new FormValidation;
 
 		if(isset($_POST['btnSave'])) {

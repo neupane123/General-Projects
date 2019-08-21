@@ -1,5 +1,15 @@
 
-<?php 	
+<?php 
+
+
+ini_set("SMTP","mail.axioninfosys.com");
+    $suc = mail("info@axioninfosys.com","Learning PHP","Message sending will work now","From: info@axioninfosys.com");
+    if($suc){
+        echo "Mail sent";
+    } else {
+        echo "Mail sending Failed.";
+    }
+	
 		$title = "Home";
 		require_once "header.php"; ?>
 <div class="container">

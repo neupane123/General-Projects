@@ -200,6 +200,11 @@
 
               		while($row=$res->fetch_assoc()) {
               		//------------------------------------start of while loop-------------------
+
+              		
+
+              		if( (in_array('author',explode(',' , $_SESSION['role'])) && $row['created_by'] == $_SESSION['name']) || $_SESSION['role'] == 'admin' || $_SESSION['role'] == 'editor') {
+              			//setting post viewing plicies for users with different roles
               	?>
 	                <td class="sorting_1"><?php echo $i++; ?></td>
 	                <td><?php echo $row['post_title']; ?></td>
@@ -209,7 +214,7 @@
 	                <td><a class="btn btn-md btn-warning" href="<?php echo base_url()?>post-edit.php?id=<?php echo $row['id'];?>"><i class="fa fa-edit"></i></a> <a class="btn btn-md btn-danger"  href="<?php echo base_url()?>post-del.php?id=<?php echo $row['id']?>"><i class="fa fa-trash"></i></a></td>
 	              </tr>
               	<?php 
-              		} 
+              		} }
               		//-----------------------------------end of while loop------------------------------------
               	?>
 	              </tbody>

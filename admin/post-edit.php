@@ -4,6 +4,18 @@
 		require_once "class/formValidation.class.php";
 		$validation = new FormValidation;
 
+		$sql = "select * from post where id={$_GET['id']}";
+		$res = $validation->get('con')->query($sql);
+		if($res && $res->num_rows==1)
+		{
+			$data = $res->fetch_assoc();
+		}
+
+
+		if( (in_array('author',explode(',' , $_SESSION['role'])) && $data['created_by'] == $_SESSION['name']) || $_SESSION['role'] == 'admin' || $_SESSION['role'] == 'editor')
+		{//---------------
+
+
 		if(isset($_GET['id']) && !empty($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) )
 		{
 			$id= $_GET['id'];
@@ -236,5 +248,8 @@
 
 
 <?php } ?>
+
+<?php }//roles based edit closing-------------- ?>
 <!-- ----------------end of !empty($data) block------------- -->
 <?php require_once "footer.php"; ?>
+
